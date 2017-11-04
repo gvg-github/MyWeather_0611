@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">MyWeather</string>
+    <string name="weather_text">Text</string>
+    <string name="tooltip_text">TooltipText</string>
+    <string name="button_text">Find current weather</string>
+    <string name="selectcity_text">Select city:</string>
+    <string name="choosenCity_text">City</string>
+    <string name="button_sendMessage">Send to friend</string>
+    <string name="sendback_text">sendback</string>
+
+    <string-array name="city_list">
+        <item>"Moscow"</item>
+        <item>"Saint Petersburg"</item>
+        <item>"Tyumen"</item>
+        <item>"Novosibirsk"</item>
+        <item>"Ekaterinburg"</item>
+        <item>"Kazan"</item>
+        <item>"Vladivostok"</item>
+    </string-array>
+
+    <string-array name="weather_list">
+        <item>"Sunny"</item>
+        <item>"Partly cloudy"</item>
+        <item>"Cloudy"</item>
+        <item>"Light rain"</item>
+        <item>"Heavy rain"</item>
+        <item>"Light snow"</item>
+        <item>"Snow"</item>
+    </string-array>
+
+
+</resources>

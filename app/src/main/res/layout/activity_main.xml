@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    >
+
+    <TextView
+        android:id="@+id/selectcity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selectcity_text"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        />
+
+    <Spinner
+        android:id="@+id/select_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusedByDefault="true"
+        android:layout_gravity="center"
+        android:entries="@array/city_list"
+        android:pointerIcon="horizontal_double_arrow"
+        android:textAlignment="center"
+        android:spinnerMode="dropdown"
+        ></Spinner>
+
+    <Button
+        android:id="@+id/select_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_text"
+        />
+
+    <TextView
+        android:id="@+id/sendback_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sendback_text"
+        android:layout_gravity="center_horizontal"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        />
+
+    </LinearLayout>
+
