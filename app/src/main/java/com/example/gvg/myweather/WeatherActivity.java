@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
 import java.util.List;
 
 /**
@@ -17,6 +19,8 @@ import java.util.List;
 
 public class WeatherActivity extends AppCompatActivity {
 
+    public static final String CITY_TEXT = "city_text";
+    public static final String WEATHER_TEXT = "weather_text";
     private TextView text;
     private TextView textCity;
     private String[] weatherArray;
@@ -35,6 +39,26 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
     public void onBackPressed() {
         Intent intent = new Intent();
         intent.putExtra(MainActivity.RETURN_TEXT, SENDBACK_TEXT + textCity.getText().toString());
@@ -43,9 +67,6 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     protected void init() {
-
-        Button button = (Button) findViewById(R.id.button_sendMessage);
-        button.setOnClickListener(new MyOnClickListener());
 
         textCity = (TextView) findViewById(R.id.choosenCity_text);
         text = (TextView) findViewById(R.id.weather_text);
@@ -58,6 +79,10 @@ public class WeatherActivity extends AppCompatActivity {
             String[] cityArray = getResources().getStringArray(R.array.city_list);
             textCity.setText(cityArray[extras.getInt(MainActivity.ARRAY_INDEX)]);
         }
+
+        Button button = (Button) findViewById(R.id.button_sendMessage);
+        button.setOnClickListener(new MyOnClickListener());
+
     }
 
     class MyOnClickListener implements View.OnClickListener {
