@@ -24,6 +24,7 @@ public class WeatherActivity extends AppCompatActivity {
     private TextView text;
     private TextView textCity;
     private String[] weatherArray;
+    private String[] cityArray;
     private static final String SENDBACK_TEXT = "Get data for city: ";
 
     @Override
@@ -73,11 +74,18 @@ public class WeatherActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            cityArray = getResources().getStringArray(R.array.city_list);
+            textCity.setText(cityArray[extras.getInt(MainActivity.ARRAY_INDEX)]);
+
             weatherArray = getResources().getStringArray(R.array.weather_list);
             text = (TextView) findViewById(R.id.weather_text);
             text.setText(weatherArray[extras.getInt(MainActivity.ARRAY_INDEX)]);
-            String[] cityArray = getResources().getStringArray(R.array.city_list);
-            textCity.setText(cityArray[extras.getInt(MainActivity.ARRAY_INDEX)]);
+            if (extras.getBoolean(MainActivity.CHECKBOX_MOONPHASE, false)) {
+                text.append(", text about moon phase");
+            }
+            if (extras.getBoolean(MainActivity.CHECKBOX_PRESSURE, false)) {
+                text.append(", text about pressure");
+            }
         }
 
         Button button = (Button) findViewById(R.id.button_sendMessage);

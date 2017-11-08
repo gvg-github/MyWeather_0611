@@ -4,15 +4,15 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by GVG on 29.10.2017.
@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
     public static final int RETURN_NUMBER = 1;
     public static final String RETURN_TEXT = "return_text";
     private static final String TAG = MainActivity.class.getSimpleName();
+
+    public static final String CHECKBOX_PRESSURE = "checkbox_pressure";
+    public static final String CHECKBOX_MOONPHASE = "checkbox_moonphase";
+    private CheckBox boxMoon;
+    private CheckBox boxPressure;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         SharedPreferences.Editor editor = myPreferences.edit();
         editor.putInt(MY_START_CITY, spinner.getSelectedItemPosition());
+        editor.putBoolean(CHECKBOX_PRESSURE, boxPressure.isChecked());
+        editor.putBoolean(CHECKBOX_MOONPHASE, boxMoon.isChecked());
         editor.apply();
         Log.i(TAG, "onPause");
         super.onPause();
@@ -82,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle outState) {
         outState.putString(RETURN_TEXT, returnText.getText().toString());
         outState.putInt(MY_START_CITY, spinner.getSelectedItemPosition());
+        outState.putBoolean(CHECKBOX_PRESSURE, boxPressure.isChecked());
+        outState.putBoolean(CHECKBOX_MOONPHASE, boxMoon.isChecked());
         super.onSaveInstanceState(outState);
     }
 
@@ -90,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         spinner.setSelection(savedInstanceState.getInt(MY_START_CITY));
         returnText.setText(savedInstanceState.getString(RETURN_TEXT));
+        boxPressure.setChecked(savedInstanceState.getBoolean(CHECKBOX_PRESSURE));
+        boxMoon.setChecked(savedInstanceState.getBoolean(CHECKBOX_MOONPHASE));
     }
 
     //    @Override
@@ -102,9 +113,18 @@ public class MainActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.select_list);
         returnText = (TextView) findViewById(R.id.sendback_text);
 
+        boxMoon = (CheckBox) findViewById(R.id.check_moonphase);
+        boxPressure = (CheckBox) findViewById(R.id.check_pressure);
+
         myPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         if (myPreferences.contains(MY_START_CITY)) {
             spinner.setSelection(myPreferences.getInt(MY_START_CITY, 0));
+        }
+        if (myPreferences.contains(CHECKBOX_PRESSURE)) {
+            boxPressure.setChecked(myPreferences.getBoolean(CHECKBOX_PRESSURE, false));
+        }
+        if (myPreferences.contains(CHECKBOX_MOONPHASE)) {
+            boxMoon.setChecked(myPreferences.getBoolean(CHECKBOX_MOONPHASE, false));
         }
         returnText.setText("");
 
@@ -118,9 +138,10 @@ public class MainActivity extends AppCompatActivity {
         public void onClick(View view) {
             if (view.getId() == R.id.select_button) {
                 returnText.setText("");
-                int idSelect = spinner.getSelectedItemPosition();
                 Intent intent = new Intent(MainActivity.this, WeatherActivity.class);
-                intent.putExtra(ARRAY_INDEX, idSelect);
+                intent.putExtra(ARRAY_INDEX, spinner.getSelectedItemPosition());
+                intent.putExtra(CHECKBOX_PRESSURE, boxPressure.isChecked());
+                intent.putExtra(CHECKBOX_MOONPHASE, boxMoon.isChecked());
                 startActivityForResult(intent, RETURN_NUMBER);
             }
         }
@@ -131,7 +152,10 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RETURN_NUMBER) {
             if (resultCode == RESULT_OK) {
                 String sendBackText = data.getStringExtra(RETURN_TEXT);
-                returnText.setText(sendBackText);
+//                returnText.setText(sendBackText);
+                Toast toast = Toast.makeText(getApplicationContext(), sendBackText, Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.BOTTOM, 0, 0);
+                toast.show();
             }
         }
     }

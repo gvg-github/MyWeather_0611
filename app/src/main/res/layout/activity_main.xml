@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/selectcity_text"
         android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="italic"
         />
 
@@ -28,6 +28,7 @@
         android:entries="@array/city_list"
         android:pointerIcon="horizontal_double_arrow"
         android:textAlignment="center"
+        android:background="@android:color/holo_green_light"
         android:spinnerMode="dropdown"
         ></Spinner>
 
@@ -38,13 +39,31 @@
         android:text="@string/button_text"
         />
 
+    <CheckBox
+        android:id="@+id/check_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Pressure"
+        android:textSize="25sp"
+        />
+
+    <CheckBox
+        android:id="@+id/check_moonphase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Moon phase"
+        android:textSize="25sp"
+        />
+
     <TextView
         android:id="@+id/sendback_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sendback_text"
         android:layout_gravity="center_horizontal"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="italic"
         />
 
