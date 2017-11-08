@@ -86,6 +86,12 @@ public class WeatherActivity extends AppCompatActivity {
             if (extras.getBoolean(MainActivity.CHECKBOX_PRESSURE, false)) {
                 text.append(", text about pressure");
             }
+            if (extras.getBoolean(MainActivity.CHECKBOX_TOMORROW, false)) {
+                text.append(", text about tomorrow");
+            }
+            if (extras.getBoolean(MainActivity.CHECKBOX_WEEK, false)) {
+                text.append(", text about week");
+            }
         }
 
         Button button = (Button) findViewById(R.id.button_sendMessage);

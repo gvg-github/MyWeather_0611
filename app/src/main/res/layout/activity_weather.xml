@@ -12,7 +12,7 @@
         android:text="@string/choosenCity_text"
         android:textSize="30dp"
         android:layout_gravity="fill_horizontal"
-        android:layout_weight="0.01"
+        android:layout_weight="4"
         />
 
     <ImageView
@@ -20,18 +20,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/w001"
-        android:layout_weight="0.5"
+        android:layout_weight="8"
+        android:layout_gravity="center"
         />
 
-    <TextView
-        android:id="@+id/weather_text"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/weather_text"
-        android:textSize="50dp"
-        android:layout_gravity="fill"
-        android:layout_weight="0.5"
-        />
+        android:layout_weight="12"
+        android:clipToPadding="true"
+        android:layout_gravity="fill_horizontal"
+        >
+
+        <TextView
+            android:id="@+id/weather_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weather_text"
+            android:textSize="50sp"
+            android:layout_gravity="clip_vertical"
+            />
+
+    </ScrollView>
 
     <Button
         android:id="@+id/button_sendMessage"
@@ -39,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="@string/button_sendMessage"
-        android:layout_weight="0.01"
+        android:layout_weight="1"
         />
 
 </LinearLayout>

@@ -33,8 +33,12 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String CHECKBOX_PRESSURE = "checkbox_pressure";
     public static final String CHECKBOX_MOONPHASE = "checkbox_moonphase";
+    public static final String CHECKBOX_TOMORROW = "checkbox_tomorrow";
+    public static final String CHECKBOX_WEEK = "checkbox_week";
     private CheckBox boxMoon;
     private CheckBox boxPressure;
+    private CheckBox boxTomorrow;
+    private CheckBox boxWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         editor.putInt(MY_START_CITY, spinner.getSelectedItemPosition());
         editor.putBoolean(CHECKBOX_PRESSURE, boxPressure.isChecked());
         editor.putBoolean(CHECKBOX_MOONPHASE, boxMoon.isChecked());
+
+        editor.putBoolean(CHECKBOX_TOMORROW, boxTomorrow.isChecked());
+        editor.putBoolean(CHECKBOX_WEEK, boxWeek.isChecked());
+
         editor.apply();
         Log.i(TAG, "onPause");
         super.onPause();
@@ -91,6 +99,8 @@ public class MainActivity extends AppCompatActivity {
         outState.putInt(MY_START_CITY, spinner.getSelectedItemPosition());
         outState.putBoolean(CHECKBOX_PRESSURE, boxPressure.isChecked());
         outState.putBoolean(CHECKBOX_MOONPHASE, boxMoon.isChecked());
+        outState.putBoolean(CHECKBOX_TOMORROW, boxTomorrow.isChecked());
+        outState.putBoolean(CHECKBOX_WEEK, boxWeek.isChecked());
         super.onSaveInstanceState(outState);
     }
 
@@ -101,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
         returnText.setText(savedInstanceState.getString(RETURN_TEXT));
         boxPressure.setChecked(savedInstanceState.getBoolean(CHECKBOX_PRESSURE));
         boxMoon.setChecked(savedInstanceState.getBoolean(CHECKBOX_MOONPHASE));
+        boxTomorrow.setChecked(savedInstanceState.getBoolean(CHECKBOX_TOMORROW));
+        boxWeek.setChecked(savedInstanceState.getBoolean(CHECKBOX_WEEK));
     }
 
     //    @Override
@@ -115,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
         boxMoon = (CheckBox) findViewById(R.id.check_moonphase);
         boxPressure = (CheckBox) findViewById(R.id.check_pressure);
+        boxTomorrow = (CheckBox) findViewById(R.id.check_tomorrow);
+        boxWeek = (CheckBox) findViewById(R.id.check_week);
 
         myPreferences = getSharedPreferences(MY_PREFERENCES, Context.MODE_PRIVATE);
         if (myPreferences.contains(MY_START_CITY)) {
@@ -125,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
         }
         if (myPreferences.contains(CHECKBOX_MOONPHASE)) {
             boxMoon.setChecked(myPreferences.getBoolean(CHECKBOX_MOONPHASE, false));
+        }
+        if (myPreferences.contains(CHECKBOX_TOMORROW)) {
+            boxTomorrow.setChecked(myPreferences.getBoolean(CHECKBOX_TOMORROW, false));
+        }
+        if (myPreferences.contains(CHECKBOX_WEEK)) {
+            boxWeek.setChecked(myPreferences.getBoolean(CHECKBOX_WEEK, false));
         }
         returnText.setText("");
 
@@ -142,6 +162,8 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(ARRAY_INDEX, spinner.getSelectedItemPosition());
                 intent.putExtra(CHECKBOX_PRESSURE, boxPressure.isChecked());
                 intent.putExtra(CHECKBOX_MOONPHASE, boxMoon.isChecked());
+                intent.putExtra(CHECKBOX_TOMORROW, boxTomorrow.isChecked());
+                intent.putExtra(CHECKBOX_WEEK, boxWeek.isChecked());
                 startActivityForResult(intent, RETURN_NUMBER);
             }
         }

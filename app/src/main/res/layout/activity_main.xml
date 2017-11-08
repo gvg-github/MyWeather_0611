@@ -49,6 +49,24 @@
         />
 
     <CheckBox
+        android:id="@+id/check_tomorrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Tomorrow"
+        android:textSize="25sp"
+        />
+
+    <CheckBox
+        android:id="@+id/check_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="Week"
+        android:textSize="25sp"
+        />
+
+    <CheckBox
         android:id="@+id/check_moonphase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
