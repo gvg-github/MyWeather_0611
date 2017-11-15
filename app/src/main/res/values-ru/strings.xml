@@ -4,9 +4,12 @@
     <string name="tooltip_text">TooltipText</string>
     <string name="button_text">Узнать текущую погоду</string>
     <string name="selectcity_text">Выберите город:</string>
-    <string name="choosenCity_text">City</string>
+    <string name="choosenCity_text">Город</string>
     <string name="button_sendMessage">Отправь другу</string>
-    <string name="sendback_text">sendback</string>
+    <string name="sendback_text">Ответное сообщение</string>
+    <string name="selectAdd_text">Дополнительные опции:</string>
+    <string name="mainSize_text">20sp</string>
+    <string name="bigSize_text">30sp</string>
 
     <string-array name="city_list">
         <item>"Москва"</item>

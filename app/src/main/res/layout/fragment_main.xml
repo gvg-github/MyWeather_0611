@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.gvg.myweather.MainFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/selectcity_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/selectcity_text"
+        android:textSize="@string/mainSize_text"
+        android:textStyle="italic" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="LinearLayoutManager"/>
+
+
+    <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="fill_horizontal"-->
+    <!--android:clipToPadding="true">-->
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical">-->
+
+
+    <TextView
+        android:id="@+id/selectAdd_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/selectAdd_text"
+        android:textSize="@string/mainSize_text"
+        android:textStyle="italic" />
+
+    <CheckBox
+        android:id="@+id/check_pressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Pressure"
+        android:textSize="@string/mainSize_text" />
+
+    <CheckBox
+        android:id="@+id/check_tomorrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Tomorrow"
+        android:textSize="@string/mainSize_text" />
+
+    <CheckBox
+        android:id="@+id/check_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Week"
+        android:textSize="@string/mainSize_text" />
+
+    <CheckBox
+        android:id="@+id/check_moonphase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Moon phase"
+        android:textSize="@string/mainSize_text" />
+
+    <!--</LinearLayout>-->
+
+    <!--</ScrollView>-->
+
+</LinearLayout>

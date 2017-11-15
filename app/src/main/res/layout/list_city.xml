@@ -8,7 +8,7 @@
         android:id="@+id/city_element"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25sp"
+        android:textSize="@string/bigSize_text"
         />
 
 </LinearLayout>

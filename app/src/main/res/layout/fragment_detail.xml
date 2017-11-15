@@ -16,13 +16,13 @@
         />
 
     <!--<ImageView-->
-        <!--android:id="@+id/weather_image"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:src="@drawable/w001"-->
-        <!--android:layout_weight="8"-->
-        <!--android:layout_gravity="center"-->
-        <!--/>-->
+    <!--android:id="@+id/weather_image"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:src="@drawable/w001"-->
+    <!--android:layout_weight="8"-->
+    <!--android:layout_gravity="center"-->
+    <!--/>-->
 
     <ScrollView
         android:layout_width="match_parent"

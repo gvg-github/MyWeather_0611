@@ -7,7 +7,10 @@
     <string name="choosenCity_text">City</string>
     <string name="button_sendMessage">Send to friend</string>
     <string name="sendback_text">sendback</string>
-    <string name="selectAdd_text">Select additional:</string>
+    <string name="selectAdd_text">Additional options:</string>
+    <string name="mainSize_text">20sp</string>
+    <string name="bigSize_text">30sp</string>
+
 
     <string-array name="city_list">
         <item>"Moscow"</item>
@@ -28,6 +31,9 @@
         <item>"Light snow"</item>
         <item>"Snow"</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
